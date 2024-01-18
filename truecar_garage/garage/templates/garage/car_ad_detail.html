@@ -1,0 +1,11 @@
+{% if debug_flag %}
+    <h1>This is {{page_name}}.html</h1>
+{% endif %}
+{% if car_ad_detail %}
+    <ul>
+        <li>{{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }}</li>
+        <li><a href="/garage/car_ad">Return to Car Ads List</a></li>
+    </ul>
+{% else %}
+    <p>No car ads are available.</p>
+{% endif %}

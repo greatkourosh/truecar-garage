@@ -2,6 +2,7 @@ import datetime
 
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -58,6 +59,9 @@ class Car(models.Model):
         default=Brand.TOYOTA,
     )
 
+    # def get_car_brand(self):
+    #     return self.Brand.label
+
     doors = models.IntegerField(
         default=4
     )
@@ -88,6 +92,10 @@ class Car(models.Model):
         default=Fuel.PETROL,
     )
 
+    listed = models.DateTimeField(
+        verbose_name=_("Listed On"),
+        default=datetime.date.today,
+    )
     # car_model = models.CharField(max_length=100)
     model = models.CharField(
         max_length=50,
@@ -132,7 +140,8 @@ class Car(models.Model):
     )
 
     def __str__(self):
-        return f"{self.car_brand} - {self.model}"
+        # return f"{self.car_brand} - {self.model}"
+        return f"{self.get_car_brand_display()} - {self.model}"
 
 
 class CarAd(models.Model):
@@ -190,11 +199,15 @@ class CarAd(models.Model):
     vin = models.CharField(
         max_length=17,
     )
-    listed = models.DateField(
+    listed = models.DateTimeField(
         verbose_name=_("Listed On"),
         default=datetime.date.today,
     )
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.car.car_brand} {self.car.model} was published at {self.listed} with VIN = {self.vin}"
+        # return f"{self.car.car_brand} {self.car.model} was published at {self.listed} with VIN = {self.vin}"
+        return f"{self.car.get_car_brand_display()} {self.car.model} was published at {self.listed} with VIN = {self.vin}"
+
+    def was_published_recently(self):
+        return self.listed >= timezone.now() - datetime.timedelta(days=1)
