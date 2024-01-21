@@ -3,9 +3,10 @@
 {% endif %}
 {% if car_ad_detail %}
     <ul>
-        <li>{{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }}</li>
-        <li><a href="/garage/car_ad">Return to Car Ads List</a></li>
+        <li>{{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }} {{car_ad_detail.vin}}</li>
+        <li><a href="/garage/car/{{ car_ad_detail.car.id }}/">{{ car_ad_detail.car }}</a></li>
     </ul>
 {% else %}
     <p>No car ads are available.</p>
 {% endif %}
+<p><a href="/garage/car_ad">Return to Car Ads List</a></p>

@@ -4,7 +4,7 @@
 {% if latest_car_ad_list %}
     <ul>
     {% for car_ad in latest_car_ad_list %}
-        <li><a href="/garage/{{ car_ad.id }}/">{{ car_ad.car.get_car_brand_display }} {{ car_ad.car.model }}</a></li>
+        <li><a href="/garage/{{ car_ad.id }}/">{{ car_ad.car.get_car_brand_display }} {{ car_ad.car.model }} {{car_ad.vin}}</a></li>
     {% endfor %}
     </ul>
 {% else %}

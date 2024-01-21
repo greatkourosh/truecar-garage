@@ -201,7 +201,8 @@ class CarAd(models.Model):
     )
     listed = models.DateTimeField(
         verbose_name=_("Listed On"),
-        default=datetime.date.today,
+        # default=datetime.datetime.now(),
+        auto_now_add=True
     )
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 

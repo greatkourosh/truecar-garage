@@ -2,8 +2,6 @@ from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-
-# from truecar_garage.garage.models import CarAd
 from .models import CarAd, Car
 debug_flag = settings.DEBUG
 
@@ -39,9 +37,12 @@ def car_detail(request, car_id, html_template="car_detail"):
     # [print(car) for car in latest_car_list]
     # return HttpResponse(latest_car_list)
     car_detail = Car.objects.get(id=car_id)
+    # related_car_ads = CarAd.objects.get(car=car_id)
+    related_car_ads = CarAd.objects.filter(car=car_id)
     template = loader.get_template(f"garage/car_detail.html")
     context = {
         "car_detail": car_detail,
+        "related_car_ads": related_car_ads,
         "page_name": html_template,
         'debug_flag': debug_flag,
     }
