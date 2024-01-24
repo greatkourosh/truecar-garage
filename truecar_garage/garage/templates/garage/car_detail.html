@@ -1,12 +1,17 @@
 {% if debug_flag %}
     <h1>This is {{page_name}}.html</h1>
+{% else %}
+    <h1>{{ car_detail.get_car_brand_display }} {{ car_detail.model }}</h1>
 {% endif %}
+
 {% if car_detail %}
+    {% if debug_flag %}
     <ul>
         <li>{{ car_detail.get_car_brand_display }} {{ car_detail.model }}</li>
     </ul>
+    {% endif %}
 {% else %}
-    <p>No car ads are available.</p>
+    <p>No car is available.</p>
 {% endif %}
 {% if related_car_ads %}
     {% for car_ad in related_car_ads %}
@@ -14,5 +19,7 @@
             <li><a href="/garage/car_ad/{{ car_ad.id }}/">{{ car_ad.car.get_car_brand_display }} {{ car_ad.car.model }} {{ car_ad.vin }}</a></li>
         </ul>
     {% endfor %}
+{% else %}
+    <p>No related car ads are available.</p>
 {% endif %}
 <p><a href="/garage/car">Return to Cars List</a></p>

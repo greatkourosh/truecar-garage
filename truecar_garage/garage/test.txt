@@ -1,0 +1,23 @@
+<div data-test="cardContent" class="card-content order-3 vehicle-card-body"><a class="linkable vehicle-card-overlay order-2" data-test="vehicleCardLink" aria-label="View details for 2021 BMW X3" href="/used-cars-for-sale/listing/5UXTY5C0XM9H22657/2021-bmw-x3/?sponsoredVehiclePosition=0"></a><div class="vehicle-card-top"><div class="heading-base flex" data-qa="Heading" data-test="vehicleListingCardTitle"><div class="truncate"><div data-test="vehicleCardYearMakeModel" class="vehicle-card-header w-full"><span class="mr-1 text-xs font-bold">Sponsored</span><span class="vehicle-card-year text-xs">2021</span> <span class="truncate">BMW<!-- --> <!-- -->X3</span></div><div class="truncate text-xs" data-test="vehicleCardTrim">xDrive30i AWD</div></div></div></div><div class="vehicle-card-bottom vehicle-card-bottom-top-spacing"><div class="vehicle-card-bottom-pricing flex w-full justify-between" style="min-height:43px"><div class="pr-3 vehicle-card-bottom-pricing-primary"><div class="text-sm"><div class=""><div class="vehicle-card-price-rating-label-container"><div class="graph-icon-container graph-icon-bucket-one vehicle-card-price-rating-label-icon-container" style="height:1rem;width:1rem"><svg viewBox="0 0 24 24" class="icon icon-fill-default graph-icon" style="width:13px;height:13px" aria-hidden="true"><use href="#caret-double-down"></use></svg></div><span data-test="graphIconLabel" class="graph-icon-title ml-1 vehicle-card-price-rating-label truncate font-bold">Excellent Price</span></div></div><div class="truncate text-xs">$<!-- -->1,962<!-- --> <!-- -->off<!-- --> <!-- -->avg. list price</div></div></div><div class="vehicle-card-bottom-pricing-secondary pl-3 lg:pl-2 vehicle-card-bottom-max-50"><div><div class="heading-3 normal-case font-bold" data-qa="Heading" data-test="vehicleCardPricingBlockPrice"><div class="text-sm line-through">$26,111</div><span data-test="vehicleListingPriceAmount">$26,000</span></div></div></div></div></div><div class="mt-2-5 w-full border-t pt-2-5"><div class="flex w-full justify-between"><div class="truncate text-xs" data-test="vehicleMileage"><svg viewBox="0 0 24 24" class="icon icon-before icon-fill-default vehicle-card-icon" style="width:16px;height:16px" aria-hidden="true"><use href="#speed"></use></svg>44,929<!-- --> miles</div><div data-test="vehicleCardDiscountText" class="vehicle-card-discount ml-2 truncate text-right text-xs"><div class="discount-text rounded-[100px] bg-[#CDF3EE] text-[#000]">Dealer Discount Available</div></div></div><div class="vehicle-card-location mt-1 text-xs" data-test="vehicleCardLocation"><svg viewBox="0 0 24 24" class="icon icon-before icon-fill-default vehicle-card-icon" style="width:16px;height:16px" aria-hidden="true"><use href="#location_on"></use></svg>Hillside<!-- -->, <!-- -->NJ</div><div class="vehicle-card-location mt-1 truncate text-xs" data-test="vehicleCardColors"><svg viewBox="0 0 24 24" class="icon icon-before icon-fill-default vehicle-card-icon" style="width:16px;height:16px" aria-hidden="true"><use href="#format_color_fill"></use></svg>Silver<!-- --> exterior,<!-- --> <!-- -->Black<!-- --> interior</div></div><div class="vehicle-card-location mt-1 text-xs" data-test="vehicleCardCondition"><svg viewBox="0 0 24 24" class="icon icon-before icon-fill-default vehicle-card-icon" style="width:16px;height:16px" aria-hidden="true"><use href="#directions_car"></use></svg>No accidents reported, 1 Owner</div><div class="vehicle-card-vin-carousel mt-1 text-xs"><span class="vehicle-card-vin-carousel-icon">VIN</span>5UXTY5C0XM9H22657</div></div>
+
+
+
+Car Class:
+car_brand -> in request
+doors !
+engine_hp !
+fuel_type !
+model -> request
+model_year !
+series !
+transmission_speed !
+transmission_style !
+
+CarAd Class:
+
+link = true_car_link = [0]
+price
+mileage = [2]
+exterior_color = color = [3]
+vin = [4]
+car !
