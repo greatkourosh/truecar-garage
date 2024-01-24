@@ -1,0 +1,16 @@
+{% if debug_flag %}
+    <h1>This is {{page_name}}.html</h1>
+{% endif %}
+{% if cars %}
+    <ul>
+    {% for car in cars %}
+        <li><a href="/garage/car/{{ car.1 }}/">{{ car.0 }}</a></li>
+    {% endfor %}
+    </ul>
+    {% if debug_flag %}
+        <p>First Car {{cars.0}}</p>
+        <p>First Car First {{cars.0.1}}</p>
+    {% endif %}
+{% else %}
+    <p>No car ads are available.</p>
+{% endif %}

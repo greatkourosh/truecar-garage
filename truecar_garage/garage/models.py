@@ -3,6 +3,7 @@ import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils import timezone
+# from djmoney.models.fields import MoneyField
 from django.utils.translation import gettext_lazy as _
 
 
@@ -91,11 +92,6 @@ class Car(models.Model):
         choices=Fuel,
         default=Fuel.PETROL,
     )
-
-    listed = models.DateTimeField(
-        verbose_name=_("Listed On"),
-        default=datetime.date.today,
-    )
     # car_model = models.CharField(max_length=100)
     model = models.CharField(
         max_length=50,
@@ -141,7 +137,7 @@ class Car(models.Model):
 
     def __str__(self):
         # return f"{self.car_brand} - {self.model}"
-        return f"{self.get_car_brand_display()} - {self.model}"
+        return f"{self.get_car_brand_display()} - {self.model} - {self.model_year}"
 
 
 class CarAd(models.Model):
@@ -174,35 +170,48 @@ class CarAd(models.Model):
     GOLD = "GLD"
     YELLOW = "YLW"
     COLOR = {
-        WHITE: "white",
-        BLACK: "black",
-        GRAY: "gray",
-        SILVER: "silver",
-        BLUE: "blue",
-        RED: "red",
-        BROWN: "brown",
-        GREEN: "green",
-        ORANGE: "orange",
-        BEIGE: "beige",
-        PURPLE: "purple",
-        GOLD: "gold",
-        YELLOW: "yellow",
+        WHITE: "White",
+        BLACK: "Black",
+        GRAY: "Gray",
+        SILVER: "Silver",
+        BLUE: "Blue",
+        RED: "Red",
+        BROWN: "Brown",
+        GREEN: "Green",
+        ORANGE: "Orange",
+        BEIGE: "Beige",
+        PURPLE: "Purple",
+        GOLD: "Gold",
+        YELLOW: "Yellow",
     }
     exterior_color = models.CharField(
         max_length=3,
-        choices=COLOR,
-        default=WHITE,
+        # choices=COLOR,
+        default="White",
     )
     mileage = models.IntegerField(
         default=0,
     )
     vin = models.CharField(
         max_length=17,
+        unique=True,
     )
     listed = models.DateTimeField(
         verbose_name=_("Listed On"),
-        # default=datetime.datetime.now(),
-        auto_now_add=True
+        default=datetime.datetime.now(),
+        # auto_now_add=True,
+    )
+    price = models.DecimalField(
+        max_digits=6,
+        default=0,
+        decimal_places=0
+    )
+    
+    true_car_link = models.URLField(
+        max_length=200,
+        blank=True,
+        unique=False,
+        verbose_name="Ad Link in TrueCar Website",
     )
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
