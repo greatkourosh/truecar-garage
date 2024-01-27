@@ -15,48 +15,48 @@ from django.utils.translation import gettext_lazy as _
 class Car(models.Model):
     # car_brand = models.CharField(max_length=100)
     class Brand(models.TextChoices):
-        TOYOTA = "TYT", "Toyota"
-        FORD = "FRD", "Ford"
-        CHEVROLET = "CHV", "Chevrolet"
-        HONDA = "HND", "Honda"
-        NISSAN = "NSN", "Nissan"
-        JEEP = "JEP", "Jeep"
-        HYUNDAI = "HYN", "Hyundai"
-        KIA = "KIA", "Kia"
-        RAM = "RAM", "Ram Trucks"
-        SUBARU = "SBR", "Subaru"
+        TOYOTA = "Toyota", "Toyota"
+        FORD = "Ford", "Ford"
+        CHEVROLET = "Chevrolet", "Chevrolet"
+        HONDA = "Honda", "Honda"
+        NISSAN = "Nissan", "Nissan"
+        JEEP = "Jeep", "Jeep"
+        HYUNDAI = "Hyundai", "Hyundai"
+        KIA = "Kia", "Kia"
+        RAM = "Ram Trucks", "Ram Trucks"
+        SUBARU = "Subaru", "Subaru"
         GMC = "GMC", "GMC"
-        VOLKSWAGEN = "VSW", "Volkswagen"
+        VOLKSWAGEN = "Volkswagen", "Volkswagen"
         BMW = "BMW", "BMW"
-        Mazda = "MZD", "Mazda"
-        MERCEDES = "BNZ", "Mercedes Benz"
-        LEXUS = "LXS", "Lexus"
-        TESLA = "TSL", "Tesla"
-        DODGE = "DDG", "Dodge"
-        AUDI = "AUD", "Audi"
-        BUICK = "BUK", "Buick"
-        ACURA = "ACR", "Acura"
-        VOLVO = "VLV", "Volvo"
-        CADILLAC = "CDL", "Cadillac"
-        CHRYSLER = "CRY", "Chrysler"
-        MITSUBISHI = "MSH", "Mitsubishi"
-        LANDROVER = "LND", "Land Rover"
-        LINCOLN = "LCN", "Lincoln"
-        PORSCHE = "PCH", "Porsche"
-        INFINITI = "INF", "Infiniti"
-        GENESIS = "GNS", "Genesis"
-        MINI = "MIN", "Mini"
-        MASERATI = "MSR", "Maserati"
-        ALFAROMEO = "AFR", "Alfa Romeo"
-        JAGUAR = "JGR", "Jaguar"
-        BENTLEY = "BNT", "Bentley"
-        FERRARI = "FRR", "Ferrari"
-        LAMBORGHINI = "LMB", "Lamborghini"
-        ASTINMARTIN = "ASM", "Aston Martin"
+        Mazda = "Mazda", "Mazda"
+        MERCEDES = "Mercedes Benz", "Mercedes Benz"
+        LEXUS = "Lexus", "Lexus"
+        TESLA = "Tesla", "Tesla"
+        DODGE = "Dodge", "Dodge"
+        AUDI = "Audi", "Audi"
+        BUICK = "Buick", "Buick"
+        ACURA = "Acura", "Acura"
+        VOLVO = "Volvo", "Volvo"
+        CADILLAC = "Cadillac", "Cadillac"
+        CHRYSLER = "Chrysler", "Chrysler"
+        MITSUBISHI = "Mitsubishi", "Mitsubishi"
+        LANDROVER = "Land Rover", "Land Rover"
+        LINCOLN = "Lincoln", "Lincoln"
+        PORSCHE = "Porsche", "Porsche"
+        INFINITI = "Infiniti", "Infiniti"
+        GENESIS = "Genesis", "Genesis"
+        MINI = "Mini", "Mini"
+        MASERATI = "Maserati", "Maserati"
+        ALFAROMEO = "Alfa Romeo", "Alfa Romeo"
+        JAGUAR = "Jaguar", "Jaguar"
+        BENTLEY = "Bentley", "Bentley"
+        FERRARI = "Ferrari", "Ferrari"
+        LAMBORGHINI = "Lamborghini", "Lamborghini"
+        ASTINMARTIN = "Aston martin", "Aston martin"
 
     car_brand = models.CharField(
-        max_length=3,
-        choices=Brand,
+        max_length=25,
+        choices=Brand.choices,
         default=Brand.TOYOTA,
     )
 
@@ -87,9 +87,10 @@ class Car(models.Model):
         HYDROGEN = "HDR", "Hydrogen"
         GAS = "GAS", "Natural Gas"
         ETHANOL = "ETH", "Ethanol"
+        
     fuel_type = models.CharField(
         max_length=3,
-        choices=Fuel,
+        choices=Fuel.choices,
         default=Fuel.PETROL,
     )
     # car_model = models.CharField(max_length=100)
@@ -131,7 +132,7 @@ class Car(models.Model):
     # }
     transmission_style = models.CharField(
         max_length=3,
-        choices=TransmissionTypes,
+        choices=TransmissionTypes.choices,
         default=TransmissionTypes.MANUAL,
     )
 

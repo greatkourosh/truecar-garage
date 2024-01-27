@@ -28,21 +28,33 @@ def get_data_from_nhtsa(vin_number):
 
 def generate_or_return_car(vin):
     vehicle_data = get_data_from_nhtsa(vin)
-    car_brand = vehicle_data['Make']
+    brand = str(vehicle_data['Make'])
+    car_brand = brand.capitalize()
     # doors = vehicle_data['Doors']
     try:
         doors = vehicle_data['Doors']
     except:
         doors = 4
-    engine_hp = vehicle_data['EngineHP']
-    fuel_type = vehicle_data['FuelTypePrimary']
+    # engine_hp = vehicle_data['EngineHP']
+    try:
+        engine_hp = vehicle_data['EngineHP']
+    except:
+        engine_hp = 0
+    # fuel_type = vehicle_data['FuelTypePrimary']
+    try:
+        fuel_type = vehicle_data['FuelTypePrimary']
+    except:
+        fuel_type = 'Petrol'
     model = vehicle_data['Model']
     model_year = vehicle_data['ModelYear']
     # series = vehicle_data['Series']
     try:
         series = vehicle_data['Series']
     except:
-        series = vehicle_data['Trim']        
+        try:
+            series = vehicle_data['Trim']
+        except:
+            series = ""        
     # transmission_speeds = vehicle_data['TransmissionSpeeds']
     try:
         transmission_speeds = vehicle_data['TransmissionSpeeds']

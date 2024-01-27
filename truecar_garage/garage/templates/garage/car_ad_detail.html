@@ -11,7 +11,7 @@
         {% comment %}
         <li>Check Car Details at <a href="/garage/car/{{ car_ad_detail.car.id }}/">{{ car_ad_detail.car }}</a></li>
         {% endcomment %}
-        <li>Check Car Details at <a href="{% url 'garage:car_detail' car_ad_detail.car.id%}">{{ car_ad_detail.car }}</a></li>
+        <li>Check Car Details at <a href="{%url 'garage:car_detail' car_ad_detail.car.id%}">{{ car_ad_detail.car }}</a></li>
         <li>Check Original Ad at Truecar Website at <a href="{{truecar_link}}{{ car_ad_detail.vin }}">{{ car_ad_detail.car }}</a></li>
     </ul>
 {% else %}

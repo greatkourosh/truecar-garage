@@ -1,0 +1,11 @@
+{% if debug_flag %}
+    <h1>This is {{page_name}}.html</h1>
+{% endif %}
+{% if form %}
+    <form action = "" method = "post"> 
+        {% csrf_token %} 
+        {{form }} 
+        <input type="submit" value=Submit"> 
+    </form> 
+{% endif %}
+  

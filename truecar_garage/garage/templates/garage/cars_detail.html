@@ -4,7 +4,7 @@
 {% if latest_car_list %}
     <ul>
     {% for car in latest_car_list %}
-        <li><a href="/garage/car/{{ car.id }}/">{{ car.get_car_brand_display }} {{ car.model }}</a></li>
+        <li><a href="/garage/car/{{ car.id }}/">{{ car.get_car_brand_display }} {{ car.model }} {{ car.model_year }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

@@ -1,0 +1,26 @@
+{% extends 'garage/base.html' %}
+
+{% load bootstrap5 %}
+{% block title %}
+    {% if debug_flag %}
+        This is {{page_name}}.html
+    {% else %}
+        {{page_name}}
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if debug_flag %}
+        <h1>This is {{page_name}}.html Page</h1>
+    {% else %}
+        <h1>Select Car Brand and Model</h1>
+    {% endif %}
+    {% if form %}
+        <form role="form" action = "" method="post"> 
+            {% csrf_token %} 
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            {% bootstrap_form form %}
+            {% comment %} <input type="submit" value=Submit"> {% endcomment %}
+            {% buttons submit='Submit' reset="Cancel" %}{% endbuttons %}
+        </form> 
+    {% endif %}
+{% endblock %}
