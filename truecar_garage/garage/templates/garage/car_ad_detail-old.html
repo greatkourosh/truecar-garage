@@ -1,15 +1,9 @@
-{% extends 'garage/base.html' %}
-
-{% load bootstrap5 %}
-{% block title %}
-    {% if debug_flag %}
-        This is {{page_name}}.html
-    {% else %}
-        {{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }} VIN = {{car_ad_detail.vin}}
-    {% endif %}
-{% endblock %}
-{% block content %}
-    {% if car_ad_detail %}
+{% if debug_flag %}
+    <h1>This is {{page_name}}.html</h1>
+{% else %}
+    <h1>{{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }} {{car_ad_detail.vin}}</h1>
+{% endif %}
+{% if car_ad_detail %}
     <ul>
         {% if debug_flag %}
             <li>{{ car_ad_detail.car.get_car_brand_display }} {{ car_ad_detail.car.model }} {{car_ad_detail.vin}}</li>
@@ -20,10 +14,10 @@
         <li>Check Car Details at <a href="{%url 'garage:car_detail' car_ad_detail.car.id%}">{{ car_ad_detail.car }}</a></li>
         <li>Check Original Ad at Truecar Website at <a href="{{truecar_link}}{{ car_ad_detail.vin }}">{{ car_ad_detail.car }}</a></li>
     </ul>
-    {% else %}
+{% else %}
     <p>No car ads are available.</p>
-    {% endif %}
-    <p>
-        <a href="{% url 'garage:car_ads_detail'%}">Return to Car Ads List</a>
-    </p>
-{% endblock %}
+{% endif %}
+{% comment %}
+<p><a href="/garage/car_ad">Return to Car Ads List</a></p>
+{% endcomment %}
+<p><a href="{% url 'garage:car_ads_detail'%}">Return to Car Ads List</a></p>

@@ -1,12 +1,23 @@
-{% if debug_flag %}
-    <h1>This is {{page_name}}.html</h1>
-{% endif %}
+{% extends 'garage/base.html' %}
+
+{% load bootstrap5 %}
+{% block title %}
+    {% if debug_flag %}
+        This is {{page_name}}.html
+    {% else %}
+        List of Added Cars
+    {% endif %}
+{% endblock %}
+{% block content %}
 {% if latest_car_list %}
     <ul>
     {% for car in latest_car_list %}
-        <li><a href="/garage/car/{{ car.id }}/">{{ car.get_car_brand_display }} {{ car.model }} {{ car.model_year }}</a></li>
+        <li>
+            <a href="/garage/car/{{ car.id }}/">{{ car.get_car_brand_display }} {{ car.model }} {{ car.model_year }}</a>
+        </li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>No car ads are available.</p>
+    {% else %}
+        <p>No car ads are available.</p>
 {% endif %}
+{% endblock %}
