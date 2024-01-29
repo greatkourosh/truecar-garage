@@ -1,4 +1,4 @@
-{% extends 'app/bootstrap.html' %}
+{% extends 'garage/bootstrap.html' %}
 
 {% load bootstrap5 %}
 
@@ -7,15 +7,10 @@
         <h1>{% block title %}(no title){% endblock %}</h1>
 
         <p>
-            <a href="{% url 'garage:index' %}">home</a>
-            {% comment %} <a href="{% url 'formset_default' %}">formset</a>
-            <a href="{% url 'form_default' %}">form</a>
-            <a href="{% url 'form_by_field' %}">form_by_field</a>
-            <a href="{% url 'form_horizontal' %}">form_horizontal</a>
-            <a href="{% url 'form_inline' %}">form_inline</a>
-            <a href="{% url 'form_with_files' %}">form_with_files</a>
-            <a href="{% url 'pagination' %}">pagination</a>
-            <a href="{% url 'misc' %}">miscellaneous</a> {% endcomment %}
+            <a href="{% url 'garage:index' %}">Home</a>
+            <a href="{% url 'garage:car_ads_detail' %}">Ads List</a>
+            <a href="{% url 'garage:cars_detail' %}">Cars List</a>
+            <a href="{% url 'garage:select_car' %}">Select Car</a>
         </p>
 
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}

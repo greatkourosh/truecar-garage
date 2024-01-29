@@ -1,12 +1,16 @@
-{% if debug_flag %}
-    <h1>This is {{page_name}}.html</h1>
-{% endif %}
-{% if latest_car_ad_list %}
-    <ul>
-    {% for car_ad in latest_car_ad_list %}
-        <li><a href="/garage/{{ car_ad.id }}/">{{ car_ad.car.get_car_brand_display }} {{ car_ad.car.model }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No car ads are available.</p>
-{% endif %}
+{% extends 'garage/base.html' %}
+
+{% load bootstrap5 %}
+{% block title %}
+    {% if debug_flag %}
+        This is {{page_name}}.html
+    {% else %}
+        <h1>Welcome to Our Garage</h1>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <h2>Feel Free to Navigate through the website.</h2>
+    <p>You can Select Car Model and Brand in <a href="{% url 'garage:select_car' %}">Select Car</a> Page</p>
+    <p>View added Car Ads in <a href="{% url 'garage:car_ads_detail' %}">Ads List</a> Page</p>
+    <p>Or Find Ads by Car Brand and Model in <a href="{% url 'garage:cars_detail' %}">Cars List</a> Page</p>
+{% endblock %}

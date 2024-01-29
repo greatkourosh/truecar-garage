@@ -4,6 +4,11 @@ from django.urls import include, path
 
 from . import views
 
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+
+
 app_name = "garage"
 urlpatterns = [
     # ex: /garage/
@@ -23,6 +28,8 @@ urlpatterns = [
     path("load_car/", views.load_car_view, name="load_car"),
     path("car_generator/", views.car_generator, name="car_generator"),
     path("create_car/", views.create_car, name="create_car"),
-    path("select_car/", views.select_car, name="select_car"),
+    # path("select_car/", views.select_car, name="select_car"),
+    path("select_car/", views.SelectCar.as_view(), name="select_car"),
     path("test_form_view/", views.TestFormView.as_view(), name="test_form_default"),
+    path("test_admin_page/", views.TestAdminPage, name="test_admin_page"),
 ]

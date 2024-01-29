@@ -18,15 +18,18 @@ class SelectCar(forms.Form):
     car_brand = forms.ChoiceField(
         choices = brand.choices,
         label="Select Brand",
-        # help_text = "Select Car Brand to Search",
+        help_text = "Select Car Brand to Search",
         )
     car_model = forms.CharField(
         max_length = 200,
         label= "Enter Model",
-        # help_text = "Enter Car Model to Search",
+        help_text = "Enter Car Model to Search",
         )
     number_of_cars = forms.IntegerField(
         label= "Enter Number of Car Ads to get",
+        min_value=1,
+        max_value=20,
+        help_text = "Maximum value is 20",
     )
 
 

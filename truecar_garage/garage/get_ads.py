@@ -51,7 +51,7 @@ def get_ad_info_from_bs4(soup: bs4):
             print(ad_list)
     return ad_list
 
-def get_car_ad_details(car_brand, car_model):
+def get_car_ad_details(car_brand, car_model, number_of_ads=10):
     model = ''.join(car_model.split())
     truecar_url = f"{TRUECAR_BASE_URL}/used-cars-for-sale/listings/{car_brand}/{model}/"
     if TESTING_MODE:
@@ -65,5 +65,5 @@ def get_car_ad_details(car_brand, car_model):
     else:
         print("Truecar is not responding correctly!")
         print(truecar_response.status_code)
-    return ad_list
+    return ad_list[:number_of_ads+1]
     

@@ -1,31 +1,17 @@
+{% extends 'garage/base.html' %}
 
-<!DOCTYPE html>
-<head>
-    <title>
-        {% block title %}
-            {% if debug_flag %}
-                This is {{page_name}}.html
-            {% else %}
-                {{page_name}}
-            {% endif %}
-        {% endblock %}
-    </title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-    <div class="container">
-        {% if debug_flag %}
-            <h1>This is {{page_name}}.html Page</h1>
-        {% endif %}
-        {% if form %}
-            <form action = "" method = "post"> 
-                {% csrf_token %} 
-                {{ form.as_p }} 
-                <input type="submit" value=Submit"> 
-            </form> 
-        {% endif %}
-    </div>
-</body>
-</html>
+{% load bootstrap5 %}
+
+{% block title %}
+    Select Car to Load Ads:
+{% endblock %}
+
+{% block content %}
+
+    <form role="form" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='OK' reset="Cancel" %}{% endbuttons %}
+    </form>
+
+{% endblock %}
